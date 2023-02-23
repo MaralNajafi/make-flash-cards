@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <title>Flash Card Project</title>
   </head>
   <body>
@@ -12,22 +12,24 @@
       <h1>What's on your mind?</h1>
 
       <div class="form-container">
-        <div class="form-header">
-          <h2>Create your own Flash Card</h2>
-        </div>
-        <div class="form-body">
-          <div>
-            <label for="">title</label>
-            <input type="text" />
-          </div>
-          <div>
-            <label for="">description</label>
-            <textarea id="" cols="30" rows="10"></textarea>
-          </div>
-        </div>
-        <div class="form-footer">
-            <button type="submit">create</button>
-        </div>
+        <form action="#" id="flashCardForm">
+            <div class="form-header">
+              <h2>Create your own Flash Card</h2>
+            </div>
+            <div class="form-body">
+              <div>
+                <label for="">title</label>
+                <input type="text" id="flashCardTitle" required/>
+              </div>
+              <div>
+                <label for="">description</label>
+                <textarea id="flashCardDesc" cols="30" rows="10" required></textarea>
+              </div>
+            </div>
+            <div class="form-footer">
+              <button type="submit" id="flashCardSubmitBtn">create</button>
+            </div>
+        </form>
       </div>
     </div>
     <script src="index.js"></script>
