@@ -5,26 +5,22 @@ const flashCardForm = document.getElementById("flashCardForm");
 const flashCardTitle = document.getElementById("flashCardTitle");
 const flashCardDesc = document.getElementById("flashCardDesc");
 const flashCardSubmitBtn = document.getElementById("flashCardSubmitBtn");
-
-let flashCardDataArray = []
+const DOMflashCards = document.getElementById("flashCards")
 
 function getFlashCardData() {
   const flashCardTitleVal = flashCardTitle.value;
   const flashCardDescVal = flashCardDesc.value;
 
-  flashCardDataArray.push(
-    {
-        title: flashCardTitleVal,
-        description: flashCardDescVal,
-    }
-  )
-
   flashCardTitle.value = "";
   flashCardDesc.value = ""
 
-  let flashCards = flashCardDataArray.map(flashCard => {
-    
-  })
+  const DOMflashCard = document.createElement('li');
+  DOMflashCard.innerHTML = `
+  <p class = "flash-card-title">${flashCardTitleVal}</p>
+  <p class = "flash-card-desc">${flashCardDescVal}</p>
+  `
+  DOMflashCards.appendChild(DOMflashCard);
+  
 }
 
 flashCardForm.addEventListener("submit", getFlashCardData);
