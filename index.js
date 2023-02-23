@@ -7,7 +7,8 @@ const flashCardDesc = document.getElementById("flashCardDesc");
 const flashCardSubmitBtn = document.getElementById("flashCardSubmitBtn");
 const DOMflashCards = document.getElementById("flashCards")
 
-function getFlashCardData() {
+function getFlashCardData(e) {
+  e.preventDefault();
   const flashCardTitleVal = flashCardTitle.value;
   const flashCardDescVal = flashCardDesc.value;
 
