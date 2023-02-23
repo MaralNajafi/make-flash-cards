@@ -55,7 +55,7 @@ li {
   text-transform: capitalize;
   color: #fff;
   border-bottom: 1px solid rgba(255, 255, 255, 0.18);
-  padding-block: 5px ;
+  padding-block: 5px;
 }
 
 .form-container {
@@ -146,29 +146,29 @@ li {
 
 /* flash cards */
 
-.flash-cards-container{
-    width: 50%;
+.flash-cards-container {
+  width: 50%;
 }
-.flash-cards{
-    width: 100%;
-    flex-direction: column-reverse;
-    justify-content: flex-end;
-}
-
-.flash-card{
-        align-items: flex-start;
-        margin-bottom: 30px;
-        width: 100%;
-        min-height: 5rem;
-        padding: 18px 20px;
-        background: none;
-        box-shadow: 0px 0px 8px  rgba(255, 255, 255, 0.5);
-        border-radius: 2px;
-        color: #fff;
-        transition: all 150ms ease-in;
+.flash-cards {
+  width: 100%;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
 }
 
-.flash-card-title{
-    font-size: 20px;
-    margin-bottom: 1rem;
+.flash-card {
+  align-items: flex-start;
+  margin-bottom: 30px;
+  width: 100%;
+  min-height: 5rem;
+  padding: 18px 20px;
+  background: none;
+  box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.5);
+  border-radius: 2px;
+  color: #fff;
+  transition: all 150ms ease-in;
+}
+
+.flash-card-title {
+  font-size: 20px;
+  margin-bottom: 1rem;
 }
