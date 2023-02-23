@@ -15,6 +15,7 @@ function getFlashCardData() {
   flashCardDesc.value = ""
 
   const DOMflashCard = document.createElement('li');
+  DOMflashCard.classList.add("flash-card")
   DOMflashCard.innerHTML = `
   <p class = "flash-card-title">${flashCardTitleVal}</p>
   <p class = "flash-card-desc">${flashCardDescVal}</p>
