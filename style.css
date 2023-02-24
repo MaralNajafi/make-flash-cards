@@ -4,6 +4,7 @@
 :root {
   --ff-body: "Open Sans", sans-serif;
   --clr-blue: #052531;
+  --clr--red: #360a15;
 }
 
 *,
@@ -178,4 +179,12 @@ li {
 .flash-card-title {
   font-size: 20px;
   margin-bottom: 1rem;
+}
+
+.deleteTrashIcon:hover{
+  cursor: pointer;
+}
+
+.deleteTrashIcon svg:active{
+  fill: var(--clr--red);
 }
