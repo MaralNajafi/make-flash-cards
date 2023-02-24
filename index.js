@@ -30,7 +30,7 @@ function makeFlashCards(e) {
         <h3 class="flash-card-title">${flashCard.title}</h3>
         <p>${flashCard.description}</p>
       </div>
-      <div class="deleteTrashIcon">
+      <div class="deleteTrashIcon" onCLick="deleteFlashCards(${flashCard.id})">
         <svg fill="#fff" width="20" height="20">
           <use xlink:href="#deleteTrash" />
         </svg>
@@ -46,8 +46,15 @@ function makeFlashCards(e) {
 }
 
 
-function deleteFlashCards(params) {
+function deleteFlashCards(flashCardID) {
+  const flashCardToDelete = flashCardsList.findIndex(flashCard => flashCard.id === flashCardID);
+
+  console.log(flashCardToDelete);
+
+  const splicedFlashCardsList = flashCardsList.splice(flashCardToDelete,1);
+
   
+
 }
 
 flashCardForm.addEventListener("submit", makeFlashCards);
