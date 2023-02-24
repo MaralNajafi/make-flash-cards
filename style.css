@@ -41,6 +41,7 @@ li {
 }
 
 .main-container {
+  position: relative;
   gap: 2rem;
   background: linear-gradient(to right, #360a15, #052531);
   min-height: 100vh;
@@ -59,6 +60,8 @@ li {
 }
 
 .form-container {
+  position: sticky;
+  top: 5em;
   align-items: center;
   gap: 2rem;
   border-radius: 10px;
