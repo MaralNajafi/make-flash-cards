@@ -7,36 +7,42 @@ const flashCardDesc = document.getElementById("flashCardDesc");
 const flashCardSubmitBtn = document.getElementById("flashCardSubmitBtn");
 const DOMflashCards = document.getElementById("flashCards");
 
-const flashCardsList = [];
+let flashCardsList = [];
+let flashCardId = 0;
 
-function getFlashCardData(e) {
+function makeFlashCards(e) {
   e.preventDefault();
+  flashCardId++;
   const flashCardTitleVal = flashCardTitle.value;
   const flashCardDescVal = flashCardDesc.value;
 
-  flashCardTitle.value = "";
-  flashCardDesc.value = ""
+  let flashCardObj = {
+    title: flashCardTitleVal,
+    description: flashCardDescVal,
+    id: flashCardId,
+  };
 
-  const DOMflashCard = document.createElement('li');
-  DOMflashCard.classList.add("flash-card")
-  DOMflashCard.innerHTML = `
-  <div>
-    <p class = "flash-card-title">${flashCardTitleVal}</p>
-    <p class = "flash-card-desc">${flashCardDescVal}</p>
-  </div>
-  <div class ="deleteIcon">
-    <svg style="width: 24px; height: 24px; fill: #fff"><use xlink:href="#deleteTrash"></use></svg>
-  </div>
+  flashCardsList.push(flashCardObj);
+  let flashCard = flashCardsList.map((flashCard) => {
+    return(
+      `<li class="flash-card">
+      <div>
+        <h3 class="flash-card-title">${flashCard.title}</h3>
+        <p>${flashCard.description}</p>
+      </div>
+      <div>
+        <svg fill="#fff" width="20" height="20">
+          <use xlink:href="#deleteTrash" />
+        </svg>
+      </div>
+    </li>
   `
-  DOMflashCards.appendChild(DOMflashCard);
-  flashCardsList.push(DOMflashCard);
-  const deleteIcons = document.querySelectorAll(".deleteIcon");
-  deleteIcons.forEach(deleteIcon =>{
-    
+    )
+  });
 
-  })
+  DOMflashCards.innerHTML = flashCard;
+  flashCardTitle.value = "";
+  flashCardDesc.value = "";
 }
 
-
-
-flashCardForm.addEventListener("submit", getFlashCardData);
+flashCardForm.addEventListener("submit", makeFlashCards);
