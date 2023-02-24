@@ -49,10 +49,9 @@ function makeFlashCards(e) {
 function deleteFlashCards(flashCardID) {
   const flashCardToDelete = flashCardsList.findIndex(flashCard => flashCard.id === flashCardID);
 
-  console.log(flashCardToDelete);
-
   flashCardsList.splice(flashCardToDelete,1);
 
+  // I DO NOT like this part of my code, there must be another way!
   let flashCard = flashCardsList.map((flashCard) => {
     return(
       `<li class="flash-card">
@@ -71,9 +70,6 @@ function deleteFlashCards(flashCardID) {
   });
 
   DOMflashCards.innerHTML = flashCard;
-
-  
-
 
 }
 
