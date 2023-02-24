@@ -30,7 +30,7 @@ function makeFlashCards(e) {
         <h3 class="flash-card-title">${flashCard.title}</h3>
         <p>${flashCard.description}</p>
       </div>
-      <div>
+      <div class="trashIcon">
         <svg fill="#fff" width="20" height="20">
           <use xlink:href="#deleteTrash" />
         </svg>
