@@ -30,7 +30,7 @@ function makeFlashCards(e) {
         <h3 class="flash-card-title">${flashCard.title}</h3>
         <p>${flashCard.description}</p>
       </div>
-      <div class="deleteTrashIcon" onCLick="deleteFlashCards(${flashCard.id})">
+      <div class="deleteTrashIcon" onClick="deleteFlashCards(${flashCard.id})">
         <svg fill="#fff" width="20" height="20">
           <use xlink:href="#deleteTrash" />
         </svg>
@@ -51,9 +51,29 @@ function deleteFlashCards(flashCardID) {
 
   console.log(flashCardToDelete);
 
-  const splicedFlashCardsList = flashCardsList.splice(flashCardToDelete,1);
+  flashCardsList.splice(flashCardToDelete,1);
+
+  let flashCard = flashCardsList.map((flashCard) => {
+    return(
+      `<li class="flash-card">
+      <div>
+        <h3 class="flash-card-title">${flashCard.title}</h3>
+        <p>${flashCard.description}</p>
+      </div>
+      <div class="deleteTrashIcon" onClick="deleteFlashCards(${flashCard.id})">
+        <svg fill="#fff" width="20" height="20">
+          <use xlink:href="#deleteTrash" />
+        </svg>
+      </div>
+    </li>
+  `
+    )
+  });
+
+  DOMflashCards.innerHTML = flashCard;
 
   
+
 
 }
 
