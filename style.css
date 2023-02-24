@@ -159,7 +159,11 @@ li {
 }
 
 .flash-card {
-  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
   margin-bottom: 30px;
   width: 100%;
   min-height: 5rem;
