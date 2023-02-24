@@ -45,4 +45,9 @@ function makeFlashCards(e) {
   flashCardDesc.value = "";
 }
 
+
+function deleteFlashCards(params) {
+  
+}
+
 flashCardForm.addEventListener("submit", makeFlashCards);
