@@ -26,7 +26,7 @@ function makeFlashCards(e) {
   let flashCard = flashCardsList.map((flashCard) => {
     return(
       `<li class="flash-card">
-      <div>
+      <div class = "flash-card-header">
         <h3 class="flash-card-title">${flashCard.title}</h3>
         <p>${flashCard.description}</p>
       </div>
@@ -55,7 +55,7 @@ function deleteFlashCards(flashCardID) {
   let flashCard = flashCardsList.map((flashCard) => {
     return(
       `<li class="flash-card">
-      <div>
+      <div class = "flash-card-header">
         <h3 class="flash-card-title">${flashCard.title}</h3>
         <p>${flashCard.description}</p>
       </div>
