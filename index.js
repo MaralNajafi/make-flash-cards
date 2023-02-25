@@ -10,6 +10,15 @@ const DOMflashCards = document.getElementById("flashCards");
 let flashCardsList = [];
 let flashCardId = 0;
 
+function emptyFrom() {
+  flashCardTitle.value = "";
+  flashCardDesc.value = "";
+}
+
+function focusForm() {
+  flashCardTitle.focus();
+}
+
 function makeFlashCards(e) {
   e.preventDefault();
   flashCardId++;
@@ -41,8 +50,8 @@ function makeFlashCards(e) {
   });
 
   DOMflashCards.innerHTML = flashCard;
-  flashCardTitle.value = "";
-  flashCardDesc.value = "";
+  emptyFrom();
+  focusForm();
 }
 
 
