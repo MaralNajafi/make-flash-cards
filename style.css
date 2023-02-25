@@ -197,3 +197,8 @@ li {
 .deleteTrashIcon svg:active{
   fill: var(--clr--red);
 }
+
+button {
+  background: none;
+  border: none;
+}

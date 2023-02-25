@@ -10,7 +10,50 @@ const DOMflashCards = document.getElementById("flashCards");
 let flashCardsList = [];
 let flashCardId = 0;
 
-function makeFlashCards(e) {
+const emptyForm = () => {
+  flashCardTitle.value = "";
+  flashCardDesc.value = "";
+};
+
+const addEventListenersToAllDeleteButtons = () => {
+  const newDeleteTrashIcon = document.querySelectorAll(".deleteTrashIcon");
+  Array.from(newDeleteTrashIcon).map((deleteNode) => {
+    deleteNode.addEventListener("click", handleClickOnDeleteButton);
+  });
+};
+
+const handleClickOnDeleteButton = (e) => {
+  const buttonId = Number(e.target.closest("button").dataset.id);
+  const flashCardToDelete = flashCardsList.findIndex(
+    (flashCard) => flashCard.id === buttonId
+  );
+
+  flashCardsList.splice(flashCardToDelete, 1);
+  updateDOMwithFlashCards();
+  emptyForm();
+  addEventListenersToAllDeleteButtons();
+};
+
+const updateDOMwithFlashCards = () => {
+  let flashCards = flashCardsList.map((flashCard) => {
+    return `<li class="flash-card">
+        <div class = "flash-card-header">
+          <h3 class="flash-card-title">${flashCard.title}</h3>
+          <p>${flashCard.description}</p>
+        </div>
+        <button class="deleteTrashIcon" data-id="${flashCard.id}">
+          <svg fill="#fff" width="20" height="20">
+            <use xlink:href="#deleteTrash" />
+          </svg>
+        </button>
+      </li>
+    `;
+  });
+
+  DOMflashCards.innerHTML = flashCards;
+};
+
+function addANewCard(e) {
   e.preventDefault();
   flashCardId++;
   const flashCardTitleVal = flashCardTitle.value;
@@ -21,56 +64,10 @@ function makeFlashCards(e) {
     description: flashCardDescVal,
     id: flashCardId,
   };
-
   flashCardsList.push(flashCardObj);
-  let flashCard = flashCardsList.map((flashCard) => {
-    return(
-      `<li class="flash-card">
-      <div class = "flash-card-header">
-        <h3 class="flash-card-title">${flashCard.title}</h3>
-        <p>${flashCard.description}</p>
-      </div>
-      <div class="deleteTrashIcon" onClick="deleteFlashCards(${flashCard.id})">
-        <svg fill="#fff" width="20" height="20">
-          <use xlink:href="#deleteTrash" />
-        </svg>
-      </div>
-    </li>
-  `
-    )
-  });
-
-  DOMflashCards.innerHTML = flashCard;
-  flashCardTitle.value = "";
-  flashCardDesc.value = "";
+  updateDOMwithFlashCards();
+  emptyForm();
+  addEventListenersToAllDeleteButtons();
 }
 
-
-function deleteFlashCards(flashCardID) {
-  const flashCardToDelete = flashCardsList.findIndex(flashCard => flashCard.id === flashCardID);
-
-  flashCardsList.splice(flashCardToDelete,1);
-
-  // I DO NOT like this part of my code, there must be another way!
-  let flashCard = flashCardsList.map((flashCard) => {
-    return(
-      `<li class="flash-card">
-      <div class = "flash-card-header">
-        <h3 class="flash-card-title">${flashCard.title}</h3>
-        <p>${flashCard.description}</p>
-      </div>
-      <div class="deleteTrashIcon" onClick="deleteFlashCards(${flashCard.id})">
-        <svg fill="#fff" width="20" height="20">
-          <use xlink:href="#deleteTrash" />
-        </svg>
-      </div>
-    </li>
-  `
-    )
-  });
-
-  DOMflashCards.innerHTML = flashCard;
-
-}
-
-flashCardForm.addEventListener("submit", makeFlashCards);
+flashCardForm.addEventListener("submit", addANewCard);
