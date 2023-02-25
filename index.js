@@ -32,7 +32,7 @@ function updateDOMwithFlashCards() {
           </button>
         </div>
         <div class= "flash-card-body">
-          <p>${flashCard.description}</p>
+          <p class= "flash-card-desc">${flashCard.description}</p>
         </div>
       </li>`
     )
