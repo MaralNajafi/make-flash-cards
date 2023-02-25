@@ -20,6 +20,9 @@ li {
 }
 
 /* utility classes */
+.d-block {
+  display: block;
+}
 
 .d-flex {
   display: flex;
@@ -150,45 +153,44 @@ li {
 
 /* flash cards */
 
-.flash-cards-container {
-  width: 50%;
-}
-.flash-cards {
-  width: 100%;
-  flex-direction: column-reverse;
-  justify-content: flex-end;
+.flash-cards-container{
+  flex-grow: 1;
+  color: #fff;
 }
 
-.flash-card {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 30px;
-  width: 100%;
-  min-height: 5rem;
-  padding: 18px 20px;
+.flash-card{
+  padding: 1rem;
   background: none;
-  box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.5);
-  border-radius: 2px;
-  color: #fff;
-  transition: all 150ms ease-in;
-} 
+  box-shadow: 0px 0px 8px  rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  transition: all 130ms ease-in;
+}
+
+.flash-card:hover{
+  box-shadow: 0px 0px 15px  rgba(255, 255, 255, 0.5);
+
+}
 
 .flash-card-header{
-  width: 90%;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 10px;
 }
 
-.flash-card-header p {
-  word-wrap: break-word;
+.flash-card-title{
+  font-size: 25px;
+  font-weight: 400;
 }
 
-.flash-card-title {
-  font-size: 20px;
-  margin-bottom: 1rem;
+.flash-card-desc{
+
 }
 
-
+.deleteTrashIcon{
+  background: none;
+  border: none;
+  outline: none;
+}
 
 .deleteTrashIcon:hover{
   cursor: pointer;

@@ -22,18 +22,19 @@ function focusForm() {
 function updateDOMwithFlashCards() {
   let flashCard = flashCardsList.map((flashCard) => {
     return(
-      `<li class="flash-card">
-      <div class = "flash-card-header">
-        <h3 class="flash-card-title">${flashCard.title}</h3>
-        <p>${flashCard.description}</p>
-      </div>
-      <div class="deleteTrashIcon" onClick="deleteFlashCards(${flashCard.id})">
-        <svg fill="#fff" width="20" height="20">
-          <use xlink:href="#deleteTrash" />
-        </svg>
-      </div>
-    </li>
-  `
+      `<li class="flash-card flex-col">
+        <div class = "flash-card-header flex-row">
+          <h3 class="flash-card-title">${flashCard.title}</h3>
+          <button class="deleteTrashIcon" onClick="deleteFlashCards(${flashCard.id})">
+            <svg fill="#fff" width="20" height="20">
+              <use xlink:href="#deleteTrash" />
+            </svg>
+          </button>
+        </div>
+        <div class= "flash-card-body">
+          <p>${flashCard.description}</p>
+        </div>
+      </li>`
     )
   });
 
