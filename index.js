@@ -36,9 +36,10 @@ function updateDOMwithFlashCards() {
         </div>
       </li>`
     )
-  });
+  }).join("");
 
   DOMflashCards.innerHTML = flashCard;
+  console.log(flashCard);
 }
 
 function makeFlashCards(e) {

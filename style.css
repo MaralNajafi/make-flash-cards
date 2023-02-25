@@ -158,6 +158,10 @@ li {
   color: #fff;
 }
 
+.flash-cards{
+  gap: 2rem;
+}
+
 .flash-card{
   padding: 1rem;
   background: none;
