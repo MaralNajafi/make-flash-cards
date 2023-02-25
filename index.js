@@ -19,6 +19,27 @@ function focusForm() {
   flashCardTitle.focus();
 }
 
+function updateDOMwithFlashCards() {
+  let flashCard = flashCardsList.map((flashCard) => {
+    return(
+      `<li class="flash-card">
+      <div class = "flash-card-header">
+        <h3 class="flash-card-title">${flashCard.title}</h3>
+        <p>${flashCard.description}</p>
+      </div>
+      <div class="deleteTrashIcon" onClick="deleteFlashCards(${flashCard.id})">
+        <svg fill="#fff" width="20" height="20">
+          <use xlink:href="#deleteTrash" />
+        </svg>
+      </div>
+    </li>
+  `
+    )
+  });
+
+  DOMflashCards.innerHTML = flashCard;
+}
+
 function makeFlashCards(e) {
   e.preventDefault();
   flashCardId++;
@@ -32,24 +53,7 @@ function makeFlashCards(e) {
   };
 
   flashCardsList.push(flashCardObj);
-  let flashCard = flashCardsList.map((flashCard) => {
-    return(
-      `<li class="flash-card">
-      <div class = "flash-card-header">
-        <h3 class="flash-card-title">${flashCard.title}</h3>
-        <p>${flashCard.description}</p>
-      </div>
-      <div class="deleteTrashIcon" onClick="deleteFlashCards(${flashCard.id})">
-        <svg fill="#fff" width="20" height="20">
-          <use xlink:href="#deleteTrash" />
-        </svg>
-      </div>
-    </li>
-  `
-    )
-  });
-
-  DOMflashCards.innerHTML = flashCard;
+  updateDOMwithFlashCards();
   emptyFrom();
   focusForm();
 }
@@ -60,25 +64,7 @@ function deleteFlashCards(flashCardID) {
 
   flashCardsList.splice(flashCardToDelete,1);
 
-  // I DO NOT like this part of my code, there must be another way!
-  let flashCard = flashCardsList.map((flashCard) => {
-    return(
-      `<li class="flash-card">
-      <div class = "flash-card-header">
-        <h3 class="flash-card-title">${flashCard.title}</h3>
-        <p>${flashCard.description}</p>
-      </div>
-      <div class="deleteTrashIcon" onClick="deleteFlashCards(${flashCard.id})">
-        <svg fill="#fff" width="20" height="20">
-          <use xlink:href="#deleteTrash" />
-        </svg>
-      </div>
-    </li>
-  `
-    )
-  });
-
-  DOMflashCards.innerHTML = flashCard;
+  updateDOMwithFlashCards();
 
 }
 
