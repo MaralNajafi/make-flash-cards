@@ -211,7 +211,7 @@ li {
 @media only screen and (max-width: 900px) {
   .main-container{
     flex-direction: column;
-    padding: 2.5rem 3em;
+    padding: 2.5rem 1em;
   }
 
   .form-container{
