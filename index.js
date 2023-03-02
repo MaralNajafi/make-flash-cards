@@ -82,6 +82,10 @@ function showModal() {
   modalContainer.classList.add("show-modal");
 }
 
+function closeModal() {
+  modalContainer.classList.remove("show-modal");
+}
+
 function updateModalFlashCard(flashCardID) {
   const flashCardToShow = flashCardsList.find(flashCard => flashCard.id === flashCardID);
   modalContainer.innerHTML = (
@@ -89,16 +93,25 @@ function updateModalFlashCard(flashCardID) {
       <div class="flash-card-modal flex-col">
         <h3 class="flash-card-modal-title">${flashCardToShow.title}</h3>
         <p class="flash-card-modal-desc">${flashCardToShow.description}</p>
-        <button class="modal-delete-btn">Delete</button>
+        <button class="modal-delete-btn" onclick="deleteFlashCards(${flashCardToShow.id})">Delete</button>
       </div> 
     `
   )
 
+  addEventListenerToModalDeleteBtn();
+
+}
+
+function addEventListenerToModalDeleteBtn() {
+  const modalDeleteBtns = document.querySelectorAll('.modal-delete-btn');
+  modalDeleteBtns.forEach(modalDeleteBtn => {
+    modalDeleteBtn.addEventListener("click", closeModal);
+  })
 }
 
 window.onclick = function (event) {
   if (event.target == modalContainer) {
-    modalContainer.classList.remove("show-modal")
+    closeModal();
   }
 }
 
