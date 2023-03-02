@@ -4,6 +4,8 @@
 :root {
   --ff-body: "Open Sans", sans-serif;
   --clr-blue: #052531;
+  --clr-dark-blue: #03131a;
+  --clr-light-red: #6f1028;
   --clr--red: #360a15;
 }
 
@@ -17,6 +19,14 @@
 
 li {
   list-style: none;
+}
+
+button{
+  display: block;
+  border: none;
+  outline: none;
+  background: none;
+  font-family: inherit;
 }
 
 /* utility classes */
@@ -152,41 +162,40 @@ li {
 
 /* flash cards */
 
-.flash-cards-container{
+.flash-cards-container {
   flex-grow: 1;
   color: #fff;
 }
 
-.flash-cards{
+.flash-cards {
   gap: 2rem;
 }
 
-.flash-card{
+.flash-card {
   padding: 1rem;
   background: none;
-  box-shadow: 0px 0px 8px  rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.5);
   border-radius: 5px;
   transition: all 130ms ease-in;
 }
 
-.flash-card:hover{
-  box-shadow: 0px 0px 15px  rgba(255, 255, 255, 0.5);
-
+.flash-card:hover {
+  box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
 }
 
-.flash-card-header{
+.flash-card-header {
   gap: 1rem;
   justify-content: space-between;
   width: 100%;
   margin-bottom: 10px;
 }
 
-.flash-card-title{
+.flash-card-title {
   font-size: 22px;
   font-weight: 400;
 }
 
-.flash-card-desc{
+.flash-card-desc {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
@@ -194,27 +203,77 @@ li {
   font-size: 16px;
 }
 
-.deleteTrashIcon{
+.deleteTrashIcon {
   background: none;
   border: none;
   outline: none;
 }
 
-.deleteTrashIcon:hover{
+.deleteTrashIcon:hover {
   cursor: pointer;
 }
 
-.deleteTrashIcon svg:active{
+.deleteTrashIcon svg:active {
   fill: var(--clr--red);
 }
 
+/* Flash Card Modal Style */
+
+.flash-card-modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background: rgba(5, 37, 49, 0.55);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+}
+
+.flash-card-modal{
+  gap: 10px;
+  min-height: 10rem;
+  width: 28rem;
+  padding: 2rem 3rem;
+  border-radius: 5px;
+  color: #fff;
+  background-color: var(--clr-dark-blue);
+}
+
+.flash-card-modal h3{
+  font-size: 22px;
+  text-transform: capitalize;
+}
+
+.flash-card-modal p{
+  line-height: 1.5rem;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.flash-card-modal button{
+  color: #fff;
+  background-color: var(--clr-light-red);
+  align-self: flex-end;
+  padding: 0.5rem 1rem;
+  border-radius: 3px;
+}
+
+.flash-card-modal button:hover{
+  cursor: pointer;
+}
+
+.flash-card-modal button:active{
+  transform: scale(0.9);
+}
+
 @media only screen and (max-width: 900px) {
-  .main-container{
+  .main-container {
     flex-direction: column;
     padding: 2.5rem 1em;
   }
 
-  .form-container{
+  .form-container {
     position: static;
     min-width: 100%;
   }
