@@ -71,8 +71,7 @@ li {
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   height: 40rem;
-  width: 32rem;
-  min-width: 28rem;
+  min-width: 32rem;
   padding: 1rem 3rem;
   border-radius: 5px;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
@@ -176,13 +175,14 @@ li {
 }
 
 .flash-card-header{
+  gap: 1rem;
   justify-content: space-between;
   width: 100%;
   margin-bottom: 10px;
 }
 
 .flash-card-title{
-  font-size: 25px;
+  font-size: 22px;
   font-weight: 400;
 }
 
@@ -191,6 +191,7 @@ li {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
+  font-size: 16px;
 }
 
 .deleteTrashIcon{
@@ -205,4 +206,16 @@ li {
 
 .deleteTrashIcon svg:active{
   fill: var(--clr--red);
+}
+
+@media only screen and (max-width: 900px) {
+  .main-container{
+    flex-direction: column;
+    padding: 2.5rem 3em;
+  }
+
+  .form-container{
+    position: static;
+    min-width: 100%;
+  }
 }
