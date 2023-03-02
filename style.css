@@ -188,7 +188,7 @@ li {
 
 .flash-card-desc{
   display: -webkit-box;
-  ad-webkit-box-orient: vertical;
+  -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
 }
