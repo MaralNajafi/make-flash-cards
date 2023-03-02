@@ -231,7 +231,7 @@ button{
   background: rgba(5, 37, 49, 0.55);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
-  transition: all 100ms;
+  transition: all 300ms;
 }
 
 .show-modal{
