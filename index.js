@@ -5,7 +5,8 @@ const flashCardForm = document.getElementById("flashCardForm");
 const flashCardTitle = document.getElementById("flashCardTitle");
 const flashCardDesc = document.getElementById("flashCardDesc");
 const flashCardSubmitBtn = document.getElementById("flashCardSubmitBtn");
-const DOMflashCards = document.getElementById("flashCards");
+const DOMflashCardsContainer = document.getElementById("flashCards");
+const modalContainer = document.querySelector(".flash-card-modal-container");
 
 let flashCardsList = [];
 let flashCardId = 0;
@@ -38,8 +39,8 @@ function updateDOMwithFlashCards() {
     )
   }).join("");
 
-  DOMflashCards.innerHTML = flashCard;
-  console.log(flashCard);
+  DOMflashCardsContainer.innerHTML = flashCard;
+  addEventListenerToFlashCards();
 }
 
 function makeFlashCards(e) {
@@ -68,6 +69,23 @@ function deleteFlashCards(flashCardID) {
 
   updateDOMwithFlashCards();
 
+}
+
+function addEventListenerToFlashCards() {
+  const DOMflashCards = document.querySelectorAll(".flash-card");
+  DOMflashCards.forEach(flashCard => {
+    flashCard.addEventListener("click",showModal);
+  })
+}
+
+function showModal() {
+  modalContainer.classList.add("show-modal");
+}
+
+window.onclick = function(event) {
+  if (event.target == modalContainer) {
+    modalContainer.classList.remove("show-modal")
+  }
 }
 
 flashCardForm.addEventListener("submit", makeFlashCards);
