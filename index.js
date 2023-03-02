@@ -22,8 +22,8 @@ function focusForm() {
 
 function updateDOMwithFlashCards() {
   let flashCard = flashCardsList.map((flashCard) => {
-    return(
-      `<li class="flash-card flex-col">
+    return (
+      `<li class="flash-card flex-col" onClick="updateModalFlashCard(${flashCard.id})">
         <div class = "flash-card-header flex-row">
           <h3 class="flash-card-title">${flashCard.title}</h3>
           <button class="deleteTrashIcon" onClick="deleteFlashCards(${flashCard.id})">
@@ -65,7 +65,7 @@ function makeFlashCards(e) {
 function deleteFlashCards(flashCardID) {
   const flashCardToDelete = flashCardsList.findIndex(flashCard => flashCard.id === flashCardID);
 
-  flashCardsList.splice(flashCardToDelete,1);
+  flashCardsList.splice(flashCardToDelete, 1);
 
   updateDOMwithFlashCards();
 
@@ -74,7 +74,7 @@ function deleteFlashCards(flashCardID) {
 function addEventListenerToFlashCards() {
   const DOMflashCards = document.querySelectorAll(".flash-card");
   DOMflashCards.forEach(flashCard => {
-    flashCard.addEventListener("click",showModal);
+    flashCard.addEventListener("click", showModal);
   })
 }
 
@@ -82,7 +82,21 @@ function showModal() {
   modalContainer.classList.add("show-modal");
 }
 
-window.onclick = function(event) {
+function updateModalFlashCard(flashCardID) {
+  const flashCardToShow = flashCardsList.find(flashCard => flashCard.id === flashCardID);
+  modalContainer.innerHTML = (
+    `
+      <div class="flash-card-modal flex-col">
+        <h3 class="flash-card-modal-title">${flashCardToShow.title}</h3>
+        <p class="flash-card-modal-desc">${flashCardToShow.description}</p>
+        <button class="modal-delete-btn">Delete</button>
+      </div> 
+    `
+  )
+
+}
+
+window.onclick = function (event) {
   if (event.target == modalContainer) {
     modalContainer.classList.remove("show-modal")
   }
