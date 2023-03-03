@@ -240,6 +240,7 @@ button{
 }
 
 .flash-card-modal{
+  position: relative;
   gap: 10px;
   min-height: 10rem;
   width: 28rem;
@@ -247,6 +248,12 @@ button{
   border-radius: 5px;
   color: #fff;
   background-color: var(--clr-dark-blue);
+}
+
+.close-btn{
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
 }
 
 .flash-card-modal h3{
@@ -260,7 +267,7 @@ button{
   margin-bottom: 20px;
 }
 
-.flash-card-modal button{
+.modal-delete-btn{
   color: #fff;
   background-color: var(--clr-light-red);
   align-self: flex-end;
