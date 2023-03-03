@@ -91,6 +91,11 @@ function updateModalFlashCard(flashCardID) {
   modalContainer.innerHTML = (
     `
       <div class="flash-card-modal flex-col">
+        <button class="close-btn id="closeBtn" >
+          <svg fill="#fff" width="20" height="20">
+           <use xlink:href="#close" />
+          </svg>
+        </button>
         <h3 class="flash-card-modal-title">${flashCardToShow.title}</h3>
         <p class="flash-card-modal-desc">${flashCardToShow.description}</p>
         <button class="modal-delete-btn" onclick="deleteFlashCards(${flashCardToShow.id})">Delete</button>
@@ -99,6 +104,7 @@ function updateModalFlashCard(flashCardID) {
   )
 
   addEventListenerToModalDeleteBtn();
+  addEventListenerToCloseBtn();
 
 }
 
@@ -111,6 +117,13 @@ function addEventListenerToModalDeleteBtn() {
   const modalDeleteBtns = document.querySelectorAll('.modal-delete-btn');
   modalDeleteBtns.forEach(modalDeleteBtn => {
     modalDeleteBtn.addEventListener("click", clearModalFlashCard);
+  })
+}
+
+function addEventListenerToCloseBtn() {
+  const modalCloseBtn = document.querySelectorAll(".close-btn");
+  modalCloseBtn.forEach(closeBtn => {
+    closeBtn.addEventListener('click', closeModal);
   })
 }
 
