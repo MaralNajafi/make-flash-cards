@@ -102,10 +102,15 @@ function updateModalFlashCard(flashCardID) {
 
 }
 
+function clearModalFlashCard() {
+  modalContainer.innerHTML = "";
+  closeModal();
+}
+
 function addEventListenerToModalDeleteBtn() {
   const modalDeleteBtns = document.querySelectorAll('.modal-delete-btn');
   modalDeleteBtns.forEach(modalDeleteBtn => {
-    modalDeleteBtn.addEventListener("click", closeModal);
+    modalDeleteBtn.addEventListener("click", clearModalFlashCard);
   })
 }
 
