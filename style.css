@@ -169,6 +169,7 @@ button{
 
 .flash-cards {
   gap: 2rem;
+  flex-direction: column-reverse;
 }
 
 .flash-card {
