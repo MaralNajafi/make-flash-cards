@@ -26,7 +26,7 @@ function updateDOMwithFlashCards() {
       `<li class="flash-card flex-col" onClick="updateModalFlashCard(${flashCard.id})">
         <div class = "flash-card-header flex-row">
           <h3 class="flash-card-title">${flashCard.title}</h3>
-          <button class="deleteTrashIcon" onClick="deleteFlashCards(${flashCard.id})">
+          <button class="deleteTrashIcon" onClick="deleteFlashCards(event, ${flashCard.id})">
             <svg fill="#fff" width="20" height="20">
               <use xlink:href="#deleteTrash" />
             </svg>
@@ -62,7 +62,8 @@ function makeFlashCards(e) {
 }
 
 
-function deleteFlashCards(flashCardID) {
+function deleteFlashCards(event, flashCardID) {
+  event.stopPropagation();
   const flashCardToDelete = flashCardsList.findIndex(flashCard => flashCard.id === flashCardID);
 
   flashCardsList.splice(flashCardToDelete, 1);
@@ -98,7 +99,7 @@ function updateModalFlashCard(flashCardID) {
         </button>
         <h3 class="flash-card-modal-title">${flashCardToShow.title}</h3>
         <p class="flash-card-modal-desc">${flashCardToShow.description}</p>
-        <button class="modal-delete-btn" onclick="deleteFlashCards(${flashCardToShow.id})">Delete</button>
+        <button class="modal-delete-btn" onclick="deleteFlashCards(event, ${flashCardToShow.id})">Delete</button>
       </div> 
     `
   )
